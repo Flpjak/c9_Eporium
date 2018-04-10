@@ -21,4 +21,4 @@ production:
   <<: *default
   database: app_production
   username: ubuntu
-  password: <%= ENV['qwerty'] %>
+  password: qwerty
