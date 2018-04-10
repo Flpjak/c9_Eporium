@@ -22,15 +22,18 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem "js-routes"
+#For error viewing
+gem 'dynamic_form'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'protected_attributes'
+#Gem for rendering images
+gem "paperclip", "~> 4.2"
+#Gem for pagination of books
+gem 'will_paginate', '~> 3.0.6'
+#Gem for using Ajax js lib script.aculo.us
+gem 'prototype-rails', github: 'rails/prototype-rails', branch: '4.2'
+gem 'coffee-script-source', '1.8.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,16 +46,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  
-  gem 'coffee-script-source', '1.8.0'
   #instead of WEBrick using thin
   gem 'thin'
-  #For error viewing
-  gem 'dynamic_form'
+  gem 'pry-rails'
   
-  gem 'protected_attributes'
-  #Gem for rendering images
-  gem "paperclip", "~> 4.2"
-  #Gem for pagination of books
-  gem 'will_paginate', '~> 3.0.6'
 end

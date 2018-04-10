@@ -19,8 +19,15 @@ Rails.application.routes.draw do
     resources :books
   end
   
+  resources :cart do
+    member do
+      get 'add_book'
+    end
+  end
+  
   scope :module => "admin" do
     resources :books
   end
-
+  
+  match ':controller(/:action(/:id(.:format)))', via: [:get, :post]
 end

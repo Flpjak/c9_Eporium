@@ -19,7 +19,7 @@
   <% if @book.cover_image.nil? %>
     <dd>N/A</dd>
   <% else %>
-    <dd><%= image_tag @book.cover_image.url %></dd>
+    <dd><%= image_tag @book.cover_image %></dd>
   <% end %>
 </dl>
 

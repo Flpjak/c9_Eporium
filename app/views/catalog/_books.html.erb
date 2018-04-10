@@ -1,12 +1,35 @@
-<dl id="books">
+<ul id="books">
   <% for book in @books %>
-    <dt><%= link_to book.title, :action => "show", :id => book %></dt>
-    <% for author in book.authors %>
-      <dd><%= author.last_name %>,
-      <%= author.first_name %></dd>
-    <% end %>
-    <dd><%= pluralize(book.page_count, "page") %></dd>
-    <dd>Price: $<%= sprintf("%.2f", book.price) %></dd>
-    <dd><small>Publisher: <%= book.publisher.name %></small></dd>
+    <li class="book" id="book_<%= book.id %>">
+      <dl>
+        <dt><%= link_to book.title, :action => "show", :id => book %></dt>
+        <% for author in book.authors %>
+          <dd><%= author.last_name %>, <%= author.first_name %></dd>
+        <% end %>
+        <dd><%= pluralize(book.page_count, "page") %></dd>
+        <dd>Price: $<%= sprintf("%.2f", book.price) %></dd>
+        <dd><small><%= 'Publisher' %>: <%= book.publisher.name %></small></dd>
+        <dd><small><%=image_tag(book.cover_image, {:style => "width:250px;"})%></small></dd>
+        <dd>
+            <div class='btn btn-primary add-book' data-book-id='<%= book.id %>'>
+              +
+            </div>
+        </dd>
+      </dl>
+    </li>
+    <%= draggable_element("book_#{book.id}", :revert => true) %>
   <% end %>
-</dl>
+</ul>
+
+<script>
+  $(document).on('click', '.add-book', function(e) {
+    $.get( Routes.add_book_cart_path($(e.target).data().bookId), function( data ) {
+      swal(
+        'Success',
+        'Book successfully added to cart',
+        'success'
+      )
+      $( "#shopping_cart" ).html( data );
+    });
+  })
+</script>

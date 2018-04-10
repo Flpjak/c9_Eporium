@@ -1,6 +1,8 @@
 class Book < ActiveRecord::Base
     has_and_belongs_to_many :authors
     belongs_to :publisher
+    has_many :cart_items
+    has_many :carts, :through => :cart_items
     
     has_attached_file :cover_image,
       :styles => { :medium => "300x300>", :thumb => "100x100>" },

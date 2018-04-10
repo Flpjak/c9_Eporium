@@ -1,0 +1,6 @@
+<li id="cart_item_<%= item.book.id %>">
+  <%= link_to item.book.title, :action => "show", :controller => "catalog", :id => item.book.id %>
+  <%= pluralize(item.amount, "pc", "pcs") %>,
+  $<%= item.price * item.amount %>
+  (<%= remove_book_link("-", item.book) %>)
+</li>

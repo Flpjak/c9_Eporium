@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410090150) do
+ActiveRecord::Schema.define(version: 20180410102810) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "first_name"
@@ -39,6 +39,20 @@ ActiveRecord::Schema.define(version: 20180410090150) do
     t.string   "cover_image_content_type"
     t.integer  "cover_image_file_size"
     t.datetime "cover_image_updated_at"
+  end
+
+  create_table "cart_items", force: :cascade do |t|
+    t.integer  "book_id"
+    t.integer  "cart_id"
+    t.float    "price"
+    t.integer  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "publishers", force: :cascade do |t|
