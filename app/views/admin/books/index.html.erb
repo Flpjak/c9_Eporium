@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th><a href="?sort_by=publisher_id">Publisher</a></th>
+    <th><a href="?sort_by=title">Title</a></th>
+    <th><a href="?sort_by=isbn">ISBN</a></th>
+    <th colspan="3"></th>
+  </tr>
+  <% for book in @books %>
+  <tr>
+    <td><%=h book.publisher.name %></td>
+    <td><%=h book.title %></td>
+    <td><%=h book.isbn %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => book %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => book %></td>
+    <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?',
+    :method => :delete %></td>
+  </tr>
+  <% end %>
+</table>
+<%= will_paginate @books %>
+<br />
+<%= link_to 'New book', :action => 'new' %>

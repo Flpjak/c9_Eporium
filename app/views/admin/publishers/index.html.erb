@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing publishers</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @publishers.each do |publisher| %>
+  <tr>
+    <td><%= publisher.name %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => publisher %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => publisher %></td>
+    <td><%= button_to 'Destroy', {:action => 'destroy', :id => publisher},
+    {:method => :delete, :confirm => 'Are you sure?'} %></td>
+  </tr>
+  <% end %>
+</table>
+<br />
+
+<%= link_to 'New Publisher', :action => 'new' %>
