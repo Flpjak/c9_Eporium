@@ -14,51 +14,53 @@
 ActiveRecord::Schema.define(version: 20180410102810) do
 
   create_table "authors", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "first_name", limit: 255
+    t.string   "last_name",  limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "authors_books", id: false, force: :cascade do |t|
-    t.integer "author_id", null: false
-    t.integer "book_id",   null: false
+    t.integer  "author_id",  limit: 4, null: false
+    t.integer  "book_id",    limit: 4, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "books", force: :cascade do |t|
-    t.string   "title",                    limit: 255, null: false
-    t.integer  "publisher_id",                         null: false
+    t.string   "title",                    limit: 255,   null: false
+    t.integer  "publisher_id",             limit: 4,     null: false
     t.datetime "published_at"
     t.string   "isbn",                     limit: 13
-    t.text     "blurb"
-    t.integer  "page_count"
-    t.float    "price"
+    t.text     "blurb",                    limit: 65535
+    t.integer  "page_count",               limit: 4
+    t.float    "price",                    limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "cover_image_file_name"
-    t.string   "cover_image_content_type"
-    t.integer  "cover_image_file_size"
+    t.string   "cover_image_file_name",    limit: 255
+    t.string   "cover_image_content_type", limit: 255
+    t.integer  "cover_image_file_size",    limit: 4
     t.datetime "cover_image_updated_at"
   end
 
   create_table "cart_items", force: :cascade do |t|
-    t.integer  "book_id"
-    t.integer  "cart_id"
-    t.float    "price"
-    t.integer  "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "book_id",    limit: 4
+    t.integer  "cart_id",    limit: 4
+    t.float    "price",      limit: 24
+    t.integer  "amount",     limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "publishers", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

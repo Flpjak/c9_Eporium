@@ -98,6 +98,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
+    mysql2 (0.3.21)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     paperclip (4.3.7)
@@ -106,7 +107,6 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    pg (0.18.4)
     protected_attributes (1.1.4)
       activemodel (>= 4.0.1, < 5.0)
     pry (0.11.3)
@@ -201,8 +201,8 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   js-routes
+  mysql2 (~> 0.3.18)
   paperclip (~> 4.2)
-  pg
   protected_attributes
   prototype-rails!
   pry-rails
